@@ -16,7 +16,6 @@ app.use(cors());
 app.use(express.json());
 app.use(
   session({
-    //
     secret: "your_secret_here", // This is the secret used to sign the session ID cookie. Replace 'your_secret_here' with your actual secret.
     resave: false, // Forces the session to be saved back to the session store, even if the session was never modified during the request.
     saveUninitialized: false, // Forces a session that is "uninitialized" to be saved to the store. A session is uninitialized when it is new but not modified.
