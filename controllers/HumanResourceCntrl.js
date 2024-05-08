@@ -2,9 +2,9 @@ const HumanResource = require("../models/HumanResource.js");
 
 const gethumanResource = async (req, res) => {
   try {
-    console.log("Fetching data...");
+    // console.log("Fetching data...");
     const content = await HumanResource.find();
-    console.log("Fetched content:", content);
+    // console.log("Fetched content:", content);
     res.json(content);
   } catch (error) {
     console.error("Error fetching Content:", error);
@@ -14,9 +14,11 @@ const gethumanResource = async (req, res) => {
 
 const getspecifichumanResource = async (req, res) => {
   try {
-    console.log("Fetching data...");
-    const content = await HumanResource.find().limit(4);
-    console.log("Fetched content:", content);
+    // console.log("Fetching data...");
+    const content = await HumanResource.find({
+      displayOnPage: true,
+    }).limit(4);
+    // console.log("Fetched content:", content);
     res.json(content);
   } catch (error) {
     console.error("Error fetching Content:", error);

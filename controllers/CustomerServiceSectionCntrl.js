@@ -2,9 +2,9 @@ const CustomerServiceSection = require("../models/CustomerServiceSection");
 
 const getcustomerServiceSection = async (req, res) => {
     try {
-        console.log("Fetching data...");
+        // console.log("Fetching data...");
         const content = await CustomerServiceSection.find();
-        console.log("Fetched content:", content);
+        // console.log("Fetched content:", content);
         res.json(content);
     } catch(error) {
         console.error("Error fetching Content:", error);
@@ -14,9 +14,11 @@ const getcustomerServiceSection = async (req, res) => {
 
 const getspecificcustomerServiceSection = async (req, res) => {
     try {
-        console.log("Fetching data...");
-        const content = await CustomerServiceSection.find().limit(3);
-        console.log("Fetched content:", content);
+        // console.log("Fetching data...");
+        const content = await CustomerServiceSection.find({
+          displayOnPage: true,
+        }).limit(3);
+        // console.log("Fetched content:", content);
         res.json(content);
     } catch(error) {
         console.error("Error fetching Content:", error);

@@ -9,6 +9,8 @@ const {
 const { getspecifichumanResource } = require("../controllers/HumanResourceCntrl.js");
 
 const { getspecificcustomerServiceSection} = require("../controllers/CustomerServiceSectionCntrl.js")
+
+const { getspecificheader } = require("../controllers/HeaderCntrl.js")
  
 const getSlider = require("../controllers/SliderDataCntrl.js");
 
@@ -21,6 +23,8 @@ router.post("/teamMembers", postTeamMember);
 router.get("/specifichumanresource", getspecifichumanResource);
 
 router.get("/specificcustomerServiceSection",  getspecificcustomerServiceSection);
+
+router.get("/specificheader", getspecificheader);
 
 router.get("/getUsers", getSlider);
 

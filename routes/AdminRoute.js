@@ -24,6 +24,14 @@ const {
   deletecustomerServiceSection
 } = require("../controllers/CustomerServiceSectionCntrl");
 
+const {
+  getheader,
+  postheader,
+  getheaderById,
+  putheaderById,
+  deleteheaderById
+} = require("../controllers/HeaderCntrl.js")
+
 router.get("/teamMembers/:id", getTeamMembersById);
 
 router.put("/teamMembers/:id", putTeamMembersById);
@@ -53,5 +61,15 @@ router.get("/customerServiceSection/:id", getcustomerServiceSectionById);
 router.put("/customerServiceSection/:id", putcustomerServiceSectionById);
 
 router.delete("/customerServiceSection/:id",deletecustomerServiceSection);
+
+router.get("/header", getheader);
+
+router.post("/header", postheader);
+
+router.get("/header/:id", getheaderById);
+
+router.put("/header/:id",putheaderById);
+
+router.delete("/header/:id",deleteheaderById);
 
 module.exports = router;
