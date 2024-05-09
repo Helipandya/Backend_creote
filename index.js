@@ -16,7 +16,6 @@ app.use(cors());
 app.use(express.json());
 app.use(
   session({
-    //
     secret: "your_secret_here", // This is the secret used to sign the session ID cookie. Replace 'your_secret_here' with your actual secret.
     resave: false, // Forces the session to be saved back to the session store, even if the session was never modified during the request.
     saveUninitialized: false, // Forces a session that is "uninitialized" to be saved to the store. A session is uninitialized when it is new but not modified.
@@ -46,6 +45,27 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 app.use("/profile_pic", express.static("profile_pic"));
+app.use("/service_section_pic", express.static("service_section_pic"));
+// app.post("/api/uploadAndStore", upload.single("file"), (req, res) => {
+//   if (!req.body.folderName) {
+//     return res.status(400).json({ error: "Folder name is required" });
+//   }
+//   if (!req.file) {
+//     return res.status(400).json({ error: "File is missing" });
+//   }
+//   const filePath = req.file.path;
+
+//   // Calculate relative path
+//   const relativePath = path.relative(__dirname, filePath).replace(/\\/g, "/");
+
+//   // Construct URL
+//   const fullUrl = ` ${req.protocol}://${req.get("host")}/${relativePath}`;
+
+//   res
+//     .status(200)
+//     .json({ message: "File uploaded successfully", filePath: fullUrl });
+// });
+
 app.post("/api/uploadAndStore", upload.single("file"), (req, res) => {
   if (!req.body.folderName) {
     return res.status(400).json({ error: "Folder name is required" });
@@ -53,17 +73,26 @@ app.post("/api/uploadAndStore", upload.single("file"), (req, res) => {
   if (!req.file) {
     return res.status(400).json({ error: "File is missing" });
   }
-  const filePath = req.file.path;
+  const folderName = req.body.folderName;
+  const uploadPath = path.join(__dirname, folderName);
+  fs.mkdirSync(uploadPath, { recursive: true }); // Ensure folder exists
+  const filePath = path.join(uploadPath, req.file.filename); // Path to save file
 
-  // Calculate relative path
-  const relativePath = path.relative(__dirname, filePath).replace(/\\/g, "/");
+  fs.rename(req.file.path, filePath, (err) => {
+    if (err) {
+      console.error("Error moving file:", err);
+      return res.status(500).json({ error: "Failed to store file" });
+    }
+    // Calculate relative path
+    const relativePath = path.relative(__dirname, filePath).replace(/\\/g, "/");
 
-  // Construct URL
-  const fullUrl = ` ${req.protocol}://${req.get("host")}/${relativePath}`;
+    // Construct URL
+    const fullUrl = `${req.protocol}://${req.get("host")}/${relativePath}`;
 
-  res
-    .status(200)
-    .json({ message: "File uploaded successfully", filePath: fullUrl });
+    res
+      .status(200)
+      .json({ message: "File uploaded successfully", filePath: fullUrl });
+  });
 });
 
 // Start the server
