@@ -5,6 +5,8 @@ const userSchema = new mongoose.Schema({
   title: String,
   description: String,
   displayOnPage: Boolean,
+  imageSrc: String,
+  sliderImg: String,
 });
 
 const UserModel = mongoose.model("users", userSchema);

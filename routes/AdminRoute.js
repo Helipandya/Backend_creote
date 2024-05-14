@@ -13,7 +13,7 @@ const {
   putHumanResourceById,
   deleteHumanResourceById,
   searchHumanResource,
-  posthumanResource
+  posthumanResource,
 } = require("../controllers/HumanResourceCntrl.js");
 
 const {
@@ -21,7 +21,7 @@ const {
   postcustomerServiceSection,
   getcustomerServiceSectionById,
   putcustomerServiceSectionById,
-  deletecustomerServiceSection
+  deletecustomerServiceSection,
 } = require("../controllers/CustomerServiceSectionCntrl");
 
 const {
@@ -29,8 +29,25 @@ const {
   postheader,
   getheaderById,
   putheaderById,
-  deleteheaderById
-} = require("../controllers/HeaderCntrl.js")
+  deleteheaderById,
+} = require("../controllers/HeaderCntrl.js");
+const {
+  putSlidersById,
+  getSlider,
+  deleteSliderById,
+  getSliderById,
+  postSlider,
+} = require("../controllers/SliderDataCntrl.js");
+
+const {
+  putLogoById,
+  getLogo,
+  deleteLogoById,
+  getLogoById,
+  postLogo,
+} = require("../controllers/LogoCntrl.js");
+
+const { route } = require("./AdminRoute.js");
 
 router.get("/teamMembers/:id", getTeamMembersById);
 
@@ -60,7 +77,7 @@ router.get("/customerServiceSection/:id", getcustomerServiceSectionById);
 
 router.put("/customerServiceSection/:id", putcustomerServiceSectionById);
 
-router.delete("/customerServiceSection/:id",deletecustomerServiceSection);
+router.delete("/customerServiceSection/:id", deletecustomerServiceSection);
 
 router.get("/header", getheader);
 
@@ -68,8 +85,28 @@ router.post("/header", postheader);
 
 router.get("/header/:id", getheaderById);
 
-router.put("/header/:id",putheaderById);
+router.put("/header/:id", putheaderById);
 
-router.delete("/header/:id",deleteheaderById);
+router.delete("/header/:id", deleteheaderById);
+
+router.put("/slider/:id", putSlidersById);
+
+router.get("/getSlider", getSlider);
+
+router.delete("/slider/:id", deleteSliderById);
+
+router.get("/slider/:id", getSliderById);
+
+router.post("/postSlider", postSlider);
+
+router.get("/logo", getLogo);
+
+router.post("/logo", postLogo);
+
+router.get("/logo/:id", getLogoById);
+
+router.put("/logo/:id", putLogoById);
+
+router.delete("/logo/:id", deleteLogoById);
 
 module.exports = router;
