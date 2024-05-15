@@ -44,9 +44,11 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
-app.use("/profile_pic", express.static("profile_pic"));
-app.use("/service_section_pic", express.static("service_section_pic"));
-app.use("/slider_pic", express.static("slider_pic"));
+app.use("/images/profile_pic", express.static("images/profile_pic"));
+app.use("/images/service_section_pic", express.static("images/service_section_pic"));
+app.use("/images/slider_pic", express.static("images/slider_pic"));
+app.use("/images/slider_profile_pic", express.static("images/slider_profile_pic"));
+app.use("/images/logo_pic", express.static("images/logo_pic"));
 // app.post("/api/uploadAndStore", upload.single("file"), (req, res) => {
 //   if (!req.body.folderName) {
 //     return res.status(400).json({ error: "Folder name is required" });
