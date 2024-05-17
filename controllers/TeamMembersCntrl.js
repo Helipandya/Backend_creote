@@ -2,9 +2,9 @@ const TeamMember = require("../models/TeamMember.js");
 
 const getTeamMember = async (req, res) => {
   try {
-    console.log("Fetching team members...");
+    // console.log("Fetching team members...");
     const teamMembers = await TeamMember.find().sort({ order: 1 });
-    console.log("Fetched team members:", teamMembers);
+    // console.log("Fetched team members:", teamMembers);
     res.json(teamMembers);
   } catch (error) {
     console.error("Error fetching team members:", error);

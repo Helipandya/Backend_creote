@@ -13,8 +13,49 @@ const {
   putHumanResourceById,
   deleteHumanResourceById,
   searchHumanResource,
+  posthumanResource,
 } = require("../controllers/HumanResourceCntrl.js");
-const { posthumanResource } = require("../controllers/HumanResourceCntrl");
+
+const {
+  getcustomerServiceSection,
+  postcustomerServiceSection,
+  getcustomerServiceSectionById,
+  putcustomerServiceSectionById,
+  deletecustomerServiceSection,
+} = require("../controllers/CustomerServiceSectionCntrl");
+
+const {
+  getheader,
+  postheader,
+  getheaderById,
+  putheaderById,
+  deleteheaderById,
+} = require("../controllers/HeaderCntrl.js");
+const {
+  putSlidersById,
+  getSlider,
+  deleteSliderById,
+  getSliderById,
+  postSlider,
+} = require("../controllers/SliderDataCntrl.js");
+
+const {
+  putLogoById,
+  getLogo,
+  deleteLogoById,
+  getLogoById,
+  postLogo,
+} = require("../controllers/LogoCntrl.js");
+
+const {
+  postImageBox,
+  putImageBoxById,
+  getImageBox,
+  getImageBoxById,
+  deleteImageBoxById
+} = require("../controllers/ImageBoxSectionCntrl.js")
+
+const { route } = require("./AdminRoute.js");
 
 router.get("/teamMembers/:id", getTeamMembersById);
 
@@ -24,7 +65,7 @@ router.delete("/teamMembers/:id", deleteTeamMemberById);
 
 router.get("/teammembers/search/:key", searchTeamMember);
 
-router.post("/humanresource", posthumanResource);
+router.post("/humanResource", posthumanResource);
 
 router.get("/humanresource", gethumanResource);
 
@@ -35,5 +76,55 @@ router.put("/humanresource/:id", putHumanResourceById);
 router.delete("/humanresource/:id", deleteHumanResourceById);
 
 router.get("/humanresource/search/:key", searchHumanResource);
+
+router.get("/customerServiceSection", getcustomerServiceSection);
+
+router.post("/customerServiceSection", postcustomerServiceSection);
+
+router.get("/customerServiceSection/:id", getcustomerServiceSectionById);
+
+router.put("/customerServiceSection/:id", putcustomerServiceSectionById);
+
+router.delete("/customerServiceSection/:id", deletecustomerServiceSection);
+
+router.get("/header", getheader);
+
+router.post("/header", postheader);
+
+router.get("/header/:id", getheaderById);
+
+router.put("/header/:id", putheaderById);
+
+router.delete("/header/:id", deleteheaderById);
+
+router.put("/slider/:id", putSlidersById);
+
+router.get("/getSlider", getSlider);
+
+router.delete("/slider/:id", deleteSliderById);
+
+router.get("/slider/:id", getSliderById);
+
+router.post("/postSlider", postSlider);
+
+router.get("/logo", getLogo);
+
+router.post("/logo", postLogo);
+
+router.get("/logo/:id", getLogoById);
+
+router.put("/logo/:id", putLogoById);
+
+router.delete("/logo/:id", deleteLogoById);
+
+router.get("/imageBox", getImageBox);
+
+router.post("/imageBox", postImageBox);
+
+router.get("/imageBox/:id", getImageBoxById);
+
+router.put("/imageBox/:id", putImageBoxById);
+
+router.delete("/imageBox/:id", deleteImageBoxById);
 
 module.exports = router;
