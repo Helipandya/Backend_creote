@@ -2,7 +2,7 @@ const Logo = require("../models/Logo.js");
 
 const getSpecificLogo = async (req, res) => {
     try {
-        const logo = await Logo.find({ displayOnPage: true}).limit(4);
+        const logo = await Logo.find({ displayOnPage: true}).limit(5);
         res.json(logo);
     } catch (err) {
         res.status(500).json({ message: err.message });
