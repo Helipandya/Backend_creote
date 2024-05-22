@@ -51,6 +51,10 @@ app.use("/images/slider_profile_pic", express.static("images/slider_profile_pic"
 app.use("/images/logo_pic", express.static("images/logo_pic"));
 app.use("/images/imageBox_pic", express.static("images/imageBox_pic"));
 app.use("/images/imageBox_logo_pic", express.static("images/imageBox_logo_pic"));
+app.use("/images/testimonial_section_pic", express.static("images/testimonial_section_pic"));
+app.use("/images/tab_section_pic", express.static("images/tab_section_pic"));
+app.use("/images/blog_section_pic", express.static("images/blog_section_pic"));
+app.use("/images/blog_profile_pic", express.static("images/blog_profile_pic"));
 // app.post("/api/uploadAndStore", upload.single("file"), (req, res) => {
 //   if (!req.body.folderName) {
 //     return res.status(400).json({ error: "Folder name is required" });
@@ -123,4 +127,4 @@ app.use("/api/user", AdminRoute);
 app.use("/api/creote", CreoteRoute);
 app.use("/api/auth", AuthAdminPanelRoute);
 
-// app.post();
+// app.post();  

@@ -53,7 +53,31 @@ const {
   getImageBox,
   getImageBoxById,
   deleteImageBoxById
-} = require("../controllers/ImageBoxSectionCntrl.js")
+} = require("../controllers/ImageBoxSectionCntrl.js");
+
+const {
+  postTestimonial,
+  putTestimonialById,
+  getTestimonial,
+  getTestimonialById,
+  deleteTestimonialById
+} = require("../controllers/TestimonialSectionCntrl.js");
+
+const {
+  postTab,
+  putTabById,
+  getTab,
+  getTabById,
+  deleteTabById
+} = require("../controllers/TabSectionCntrl.js");
+
+const {
+  postBlog,
+  getBlog,
+  getBlogById,
+  putBlogById,
+  deleteBlogById
+} = require("../controllers/BlogSectionCntrl.js")
 
 const { route } = require("./AdminRoute.js");
 
@@ -126,5 +150,35 @@ router.get("/imageBox/:id", getImageBoxById);
 router.put("/imageBox/:id", putImageBoxById);
 
 router.delete("/imageBox/:id", deleteImageBoxById);
+
+router.get("/testimonial", getTestimonial);
+
+router.post("/testimonial", postTestimonial);
+
+router.get("/testimonial/:id", getTestimonialById);
+
+router.put("/testimonial/:id", putTestimonialById);
+
+router.delete("/testimonial/:id", deleteTestimonialById);
+
+router.get("/tab", getTab);
+
+router.post("/tab", postTab);
+
+router.get("/tab/:id", getTabById);
+
+router.put("/tab/:id", putTabById);
+
+router.delete("/tab/:id", deleteTabById)
+
+router.get("/blog", getBlog);
+
+router.post("/blog", postBlog);
+
+router.get("/blog/:id", getBlogById);
+
+router.put("/blog/:id", putBlogById);
+
+router.delete("/blog/:id", deleteBlogById);
 
 module.exports = router;
