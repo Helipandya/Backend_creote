@@ -7,6 +7,6 @@
     }
   ],
   "routes": [
-    { "src": "/api/user/(.*)", "dest": "/index.js" }
+    { "src": "/api/user/(.*)", "dest": "AdminRoute" }
   ]
 }
